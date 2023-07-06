@@ -5,10 +5,21 @@
 Create a REST API endpoint to create a new product. 
 
 ### Use Case: 
-* Accept product details in the request payload, create a new product in the database, and return the created product as a JSON response. 
+* Create a REST API endpoint that allows users to create a new product. The API should accept product details in the request payload, save the product to the database, and return the created product as a JSON response
 
-This task allows you to create a new product. The ProductController exposes a POST endpoint at /products where the product details are provided in the request body as JSON. The createProduct method in the ProductService saves the product using the ProductRepository and returns the created product as a JSON response with a status code of 201 (Created).
+### Classes and Responsibilities:
 
+Controller: 
+The ProductController class is responsible for handling incoming HTTP requests and directing them to the appropriate methods. It exposes a POST endpoint at /products to create a new product. The product details are provided in the request body as JSON.
+
+Service: 
+The ProductService class contains the business logic for creating a new product. It interacts with the ProductRepository to save the product in the database. The service layer abstracts the business operations from the controller.
+
+Repository: 
+The ProductRepository interface defines the contract for interacting with the database. It provides methods for persisting and retrieving product entities. In this case, it is responsible for saving the newly created product.
+
+Entity: 
+The Product entity class represents the product's attributes and structure. It typically includes properties such as id, name, price, and description. These attributes define the data that will be stored in the database.
 Entity Details: 
 
         private Long id;
@@ -16,7 +27,13 @@ Entity Details:
         private double price;
         private String description; 
 
-"Generate API and add product details to the API"
+### Task: 
+Implement the following functionality using Spring Boot and .NET:
+
+* Create a ProductController class with a POST endpoint /products to accept product details as JSON in the request payload.
+* Create a ProductService class with a method createProduct that takes the product details, saves the product using the ProductRepository, and returns the created product as a JSON response.
+* Create a ProductRepository interface with methods to save and retrieve product entities.
+* Create a Product entity class with attributes like id, name, price, and description.
 
 ## Task 2
 
